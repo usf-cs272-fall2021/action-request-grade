@@ -1,0 +1,21 @@
+name: 'Request Project Grade'
+description: 'Github Action to request project grade.'
+
+inputs:
+  token:
+    description: 'Authentication token to access the project repositories'
+    required: true
+
+  release:
+    description: 'Project release to grade'
+    required: true
+
+  type:
+    description: 'Type of grade, [f]unctionality or [d]esign'
+    required: true
+    default: 'functionality'
+
+runs:
+  using: 'node12'
+  pre: 'setup.js'
+  main: 'index.js'
