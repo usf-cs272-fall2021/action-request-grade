@@ -1,0 +1,26 @@
+{
+  "name": "action-request-grade",
+  "version": "1.0.0",
+  "description": "Github Action to request project grade.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usf-cs212-spring2021/action-request-grade.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/usf-cs212-spring2021/action-request-grade/issues"
+  },
+  "homepage": "https://github.com/usf-cs212-spring2021/action-request-grade#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "ansi-styles": "^5.1.0",
+    "luxon": "^1.26.0"
+  }
+}
