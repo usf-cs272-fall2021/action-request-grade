@@ -462,9 +462,9 @@ ${extra.length > 0 || unapproved.length > 0 ? ':warning: **Beware creating too m
 
       const message = `${type} issue #${issue.data.number} for project ${project} release ${states.release} created. Visit the issue for further instructions at: ${issue.data.html_url}`;
 
-      core.notice(message);
       utils.showSuccess(message);
       utils.showWarning(`Grade not yet updated! Visit the created issue for further instructions!`);
+      core.notice(message);
     }
     else {
       core.startGroup('Handling unknown request...');
