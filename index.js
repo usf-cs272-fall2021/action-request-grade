@@ -202,13 +202,13 @@ async function run() {
 
 Hello @${github.context.actor}! Please follow these instructions to request your project ${project} ${type.toLowerCase()} grade:
 
-- [ ] Replace \`[FULL_NAME]\` with your full name and \`[USF_EMAIL]\` with your USF username so we can enter your grade on Canvas.
+- [ ] Edit the issue body above and replace \`[FULL_NAME]\` with your full name and \`[USF_EMAIL]\` with your USF username so we can enter your grade on Canvas. (Make sure to remove the `[` and `]` symbols too.)
 
-- [ ] Double-check the [labels, assignee, and milestone](https://guides.github.com/features/issues/) are set properly.
+- [ ] Make sure the [labels, assignee, and milestone](https://guides.github.com/features/issues/) were autoassigned correctly. (If any of these are missing, reach out on the course forums.)
 
-- [ ] Double check the parsed dates and resulting grade. It is possible the difference in time zones affected the math. If there is an error, please add a comment notifying us of the issue.
+- [ ] Make sure the parsed dates and resulting grade were autocalculated correctly. It is possible the difference in time zones affected the math. If there is an error, please add a comment notifying us of the issue.
 
-- [ ] **Re-open the issue when all of the above is complete.**
+- [ ] **Re-open the issue when all of the above is complete.** :arrow_left:
 
 Click each of the above tasks as you complete them!
 
