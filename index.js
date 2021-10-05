@@ -202,7 +202,7 @@ async function run() {
 
 Hello @${github.context.actor}! Please follow these instructions to request your project ${project} ${type.toLowerCase()} grade:
 
-- [ ] Edit the issue body above and replace \`[FULL_NAME]\` with your full name and \`[USF_EMAIL]\` with your USF username so we can enter your grade on Canvas. (Make sure to remove the `[` and `]` symbols too.)
+- [ ] Edit the issue body above and replace \`[FULL_NAME]\` with your full name and \`[USF_EMAIL]\` with your USF username so we can enter your grade on Canvas. (Make sure to remove the \`[\` and \`]\` symbols too.)
 
 - [ ] Make sure the [labels, assignee, and milestone](https://guides.github.com/features/issues/) were autoassigned correctly. (If any of these are missing, reach out on the course forums.)
 
