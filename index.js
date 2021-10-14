@@ -37,6 +37,7 @@ function calculateGrade(created, project, type) {
 
   results.penalty = constants['penalty'][type.toLowerCase()];
   results.hours = constants['hours'][type.toLowerCase()];
+  results.capped = constants['capped'][type.toLowerCase()];
 
   if (createdDate < deadline) {
     core.info(`Submitted before deadline!`);
@@ -50,8 +51,9 @@ function calculateGrade(created, project, type) {
     core.info(`Using ${results.late}x late penalty multiplier.`);
   }
 
-  results.grade = 100 - (results.late * results.penalty);
-  results.grade = Math.max(results.grade, constants['capped'][type.toLowerCase()]);
+  results.deduction = Math.min(results.capped, results.late * results.penalty);
+  results.grade = 100 - results.deduction;
+
   core.info(`Project ${project} ${type.toLowerCase()} earned a ${results.grade}% grade (before deductions).`);
 
   core.info(JSON.stringify(results));
@@ -267,8 +269,8 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
 
 ## Grade Information
 
-  - **Late Penalty:** \`${grade.late * grade.penalty}\`
-  - **Project ${type} Grade:** \`${grade.grade}%\` (before deductions)
+  - **Late Deduction:** \`${grade.deduction}\`
+  - **Project ${type} Grade:** \`${grade.grade}%\` (before other deductions)
 
       `;
 

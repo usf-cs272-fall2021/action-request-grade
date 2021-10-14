@@ -34,6 +34,6 @@ exports.hours = {
 };
 
 exports.capped = {
-  functionality: 70,
-  design: 70
+  functionality: 30,
+  design: 30
 };
