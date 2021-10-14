@@ -355,7 +355,7 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
 
       const rows = [
         '| Pull | Status | Version | Type | Approved | Passed? |',
-        '|:----:|:------:|:-------:|:-----|:---------|:--------|'
+        '|:----:|:------:|:-------:|:-----|:---------|:-------:|'
       ];
 
       for (const pull of pulls) {
