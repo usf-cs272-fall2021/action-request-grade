@@ -352,8 +352,8 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
       const unapproved = [];
 
       const rows = [
-        '| Pull | Status | Version | Type | Created | Approved | Closed |',
-        '|:----:|:------:|:-------:|:-----|:--------|:---------|:-------|'
+        '| Pull | Status | Version | Type | Approved | Labels |',
+        '|:----:|:------:|:-------:|:-----|:---------|:-------|'
       ];
 
       for (const pull of pulls) {
@@ -387,7 +387,9 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
           const approvedDate = pull.approved ? DateTime.fromISO(pull.approved.submitted_at).setZone(zone).toLocaleString(DateTime.DATETIME_FULL) : 'N/A';
           const closedDate = pull.closed_at ? DateTime.fromISO(pull.closed_at).setZone(zone).toLocaleString(DateTime.DATETIME_FULL) : 'N/A';
 
-          rows.push(`| [#${pull.number}](${pull.html_url}) | ${status} | \`${version}\` | ${pulltype} | ${createdDate} | ${approvedDate} | ${closedDate} |`);
+          const labels = pull.labels ? pull.labels.sort(sorter).map(x => x.name).join(', ') : 'N/A';
+
+          rows.push(`| [#${pull.number}](${pull.html_url}) | ${status} | \`${version}\` | ${pulltype} | ${approvedDate} | ${labels} |`);
         }
         else {
           unapproved.push(pull);
