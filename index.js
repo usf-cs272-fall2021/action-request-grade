@@ -354,8 +354,8 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
       const unapproved = [];
 
       const rows = [
-        '| Pull | Status | Version | Type | Approved | Labels |',
-        '|:----:|:------:|:-------:|:-----|:---------|:-------|'
+        '| Pull | Status | Version | Type | Approved | Passed? |',
+        '|:----:|:------:|:-------:|:-----|:---------|:--------|'
       ];
 
       for (const pull of pulls) {
@@ -389,9 +389,9 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
           const approvedDate = pull.approved ? DateTime.fromISO(pull.approved.submitted_at).setZone(zone).toLocaleString(DateTime.DATETIME_FULL) : 'N/A';
           const closedDate = pull.closed_at ? DateTime.fromISO(pull.closed_at).setZone(zone).toLocaleString(DateTime.DATETIME_FULL) : 'N/A';
 
-          const labels = pull.labels ? pull.labels.map(x => x.name).join(', ') : 'N/A';
+          const passed = pull.labels.map(x => x.name).filter(x => x == 'passed').length > 0 ? ':ballot_box_with_check:' : '';
 
-          rows.push(`| [#${pull.number}](${pull.html_url}) | ${status} | \`${version}\` | ${pulltype} | ${approvedDate} | ${labels} |`);
+          rows.push(`| [#${pull.number}](${pull.html_url}) | ${status} | \`${version}\` | ${pulltype} | ${approvedDate} | ${passed} |`);
         }
         else {
           unapproved.push(pull);
