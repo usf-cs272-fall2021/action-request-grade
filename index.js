@@ -376,7 +376,7 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
         const found = reviews.data.filter(x => x.state == "APPROVED" && x.user.login == "sjengle");
 
         if (found.length > 0) {
-          pull.approved = found[0];
+          pull.approved = found.slice(-1)[0];
           approved.push(pull);
 
           const status = pull.draft ? 'draft' : pull.state;
