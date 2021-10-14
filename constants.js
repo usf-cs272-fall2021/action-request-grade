@@ -31,4 +31,9 @@ exports.penalty = {
 exports.hours = {
   functionality: 24,
   design: 72
-}
+};
+
+exports.capped = {
+  functionality: 70,
+  design: 70
+};

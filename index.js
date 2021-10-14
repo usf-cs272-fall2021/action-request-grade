@@ -38,7 +38,6 @@ function calculateGrade(created, project, type) {
   results.penalty = constants['penalty'][type.toLowerCase()];
   results.hours = constants['hours'][type.toLowerCase()];
 
-  // TODO changed here
   if (createdDate < deadline) {
     core.info(`Submitted before deadline!`);
     results.late = 0;
@@ -52,6 +51,7 @@ function calculateGrade(created, project, type) {
   }
 
   results.grade = 100 - (results.late * results.penalty);
+  results.grade = Math.max(results.grade, constants['capped'][type.toLowerCase()]);
   core.info(`Project ${project} ${type.toLowerCase()} earned a ${results.grade}% grade (before deductions).`);
 
   core.info(JSON.stringify(results));
