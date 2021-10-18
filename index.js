@@ -407,12 +407,12 @@ We will reply and lock this issue once the grade is updated on Canvas. If we do 
       }
 
       // TODO changed here
-      states.approvedPull = approved.length > 0 ? approved[approved.length - 1].number : 'N/A';
-      states.approvedDate = approved.length > 0 ? approved[approved.length - 1].approved.submitted_at : 'N/A';
+      states.approvedPull = approved.length > 0 ? approved[0].number : 'N/A';
+      states.approvedDate = approved.length > 0 ? approved[0].approved.submitted_at : 'N/A';
 
       core.info('');
-      core.info("Last Approved Pull: " + states.approvedPull);
-      core.info("Last Approved Date: " + states.approvedDate);
+      core.info("First Approved Pull: " + states.approvedPull);
+      core.info("First Approved Date: " + states.approvedDate);
 
       core.info('');
       core.endGroup();
